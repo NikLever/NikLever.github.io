@@ -1,0 +1,53 @@
+2018-04-11T14:22:41.517Z - normal: Load ~/.CocosCreator/settings.json
+2018-04-11T14:22:41.524Z - normal: checking language setting...
+2018-04-11T14:22:41.524Z - normal: Language: en
+2018-04-11T14:22:42.644Z - success: protocol editor-framework registered
+2018-04-11T14:22:42.645Z - success: protocol app registered
+2018-04-11T14:22:42.645Z - success: protocol theme registered
+2018-04-11T14:22:42.645Z - success: protocol packages registered
+2018-04-11T14:22:42.645Z - success: protocol unpack registerred
+2018-04-11T14:22:42.645Z - success: protocol disable-commonjs registerred
+2018-04-11T14:22:44.173Z - normal: connected!
+2018-04-11T14:22:44.174Z - normal: Check project /Users/nik/Documents/cocos/start_project-2
+2018-04-11T14:22:44.176Z - normal: Initializing Cocos2d
+2018-04-11T14:22:44.470Z - normal: Initializing Asset Database
+2018-04-11T14:22:44.517Z - success: protocol uuid registerred
+2018-04-11T14:22:44.517Z - success: protocol db registerred
+2018-04-11T14:22:44.518Z - success: protocol thumbnail registerred
+2018-04-11T14:22:44.518Z - normal: Loading editor/builtin packages
+2018-04-11T14:22:44.547Z - success: anysdk loaded
+2018-04-11T14:22:44.721Z - success: assets loaded
+2018-04-11T14:22:44.725Z - success: builder loaded
+2018-04-11T14:22:44.727Z - success: cocos-analytics loaded
+2018-04-11T14:22:44.734Z - success: console loaded
+2018-04-11T14:22:44.785Z - success: fb-instant-games loaded
+2018-04-11T14:22:44.791Z - success: hierarchy loaded
+2018-04-11T14:22:44.796Z - success: inspector loaded
+2018-04-11T14:22:44.798Z - success: keystore loaded
+2018-04-11T14:22:44.809Z - success: node-library loaded
+2018-04-11T14:22:44.811Z - success: package-asset loaded
+2018-04-11T14:22:44.813Z - success: preferences loaded
+2018-04-11T14:22:44.817Z - success: project-exporter loaded
+2018-04-11T14:22:44.839Z - success: project-importer loaded
+2018-04-11T14:22:44.844Z - success: project-settings loaded
+2018-04-11T14:22:44.849Z - success: ui-kit loaded
+2018-04-11T14:22:44.855Z - success: ui-grid loaded
+2018-04-11T14:22:44.861Z - success: scene loaded
+2018-04-11T14:22:44.863Z - success: sprite-editor loaded
+2018-04-11T14:22:44.869Z - success: store loaded
+2018-04-11T14:22:44.877Z - success: timeline loaded
+2018-04-11T14:22:44.877Z - normal: Loading builtin packages
+2018-04-11T14:22:44.883Z - success: asset-db-debugger loaded
+2018-04-11T14:22:44.883Z - success: color-picker loaded
+2018-04-11T14:22:44.889Z - success: package-manager loaded
+2018-04-11T14:22:44.898Z - success: sdkbox loaded
+2018-04-11T14:22:44.909Z - success: tester loaded
+2018-04-11T14:22:44.914Z - success: ui-kit-preview-extra loaded
+2018-04-11T14:22:44.919Z - success: ui-kit-preview loaded
+2018-04-11T14:22:44.924Z - success: ui-tree loaded
+2018-04-11T14:22:46.392Z - normal: Initializing project /Users/nik/Documents/cocos/start_project-2
+2018-04-11T14:22:46.398Z - normal: Loading packages
+2018-04-11T14:22:46.404Z - normal: Watching packages
+2018-04-11T14:22:46.425Z - normal: Run Application
+2018-04-11T14:22:47.577Z - success: preview server running at http://localhost:7456
+2018-04-11T14:22:55.539Z - normal: 1.9.0

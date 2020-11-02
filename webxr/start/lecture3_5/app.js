@@ -44,7 +44,7 @@ class App{
         this.workingVector = new THREE.Vector3();
         
         this.initScene();
-        this.setupVR();
+        this.setupXR();
         
         window.addEventListener('resize', this.resize.bind(this) );
         
@@ -83,7 +83,7 @@ class App{
         this.highlight.scale.set(1.2, 1.2, 1.2);
     }
     
-    setupVR(){
+    setupXR(){
         this.renderer.xr.enabled = true;
         
         const button = new VRButton( this.renderer );
@@ -132,8 +132,14 @@ class App{
         switch ( data.targetRayMode ) {
             
             case 'tracked-pointer':
-
+                //Enter code here
                 
+                    
+                }),
+                    null,
+                    (error) => {
+                    console.error('An error happened');
+                }
                 
                 break;
                 

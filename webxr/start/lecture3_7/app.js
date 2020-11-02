@@ -36,6 +36,7 @@ class App{
         this.controls.update();
         
         this.stats = new Stats();
+        document.body.appendChild( this.stats.dom );
         
         this.raycaster = new THREE.Raycaster();
         this.workingMatrix = new THREE.Matrix4();
@@ -43,7 +44,7 @@ class App{
         this.origin = new THREE.Vector3();
         
         this.initScene();
-        this.setupVR();
+        this.setupXR();
         
         window.addEventListener('resize', this.resize.bind(this) );
         
@@ -89,9 +90,10 @@ class App{
             }
         }
         
+        
     } 
     
-    setupVR(){
+    setupXR(){
         this.renderer.xr.enabled = true;
         
         const button = new VRButton( this.renderer );
@@ -110,6 +112,7 @@ class App{
         }
         
         this.controller = this.renderer.xr.getController( 0 );
+        this.dolly.add( this.controller );
         this.controller.addEventListener( 'selectstart', onSelectStart );
         this.controller.addEventListener( 'selectend', onSelectEnd );
         this.controller.addEventListener( 'connected', function ( event ) {
@@ -163,7 +166,7 @@ class App{
     
     handleController( controller, dt ){
         if (controller.userData.selectPressed ){
-   
+            
         }
     }
     

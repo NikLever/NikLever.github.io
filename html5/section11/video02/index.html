@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>HTML5 Games - Beginner to Pro - Video 1 - Part 10</title>
+	<script src="game.js"></script>
+	<script src="spritoon.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event){
+			const game = new Game();
+			window.game = game;
+			window.addEventListener('resize', function(){ game.resize(); });
+		});
+	</script>
+</head>
+
+<body>
+	<canvas id="game" style="border:1px solid #000000; background:url(felt.jpg);"></canvas>
+</body>
+</html>

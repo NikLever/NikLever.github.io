@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bucket0019",
+    "texture": "0f664dc7-b36e-490d-a7f7-dca150450a14",
+    "atlas": "2f59f5b9-a156-4280-9771-b4c6274efe9a",
+    "rect": [
+      715,
+      225,
+      94,
+      106
+    ],
+    "offset": [
+      2,
+      -3
+    ],
+    "originalSize": [
+      140,
+      128
+    ]
+  }
+}

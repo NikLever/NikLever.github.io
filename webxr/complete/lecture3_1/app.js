@@ -36,6 +36,7 @@ class App{
         this.controls.update();
         
         this.stats = new Stats();
+        container.appendChild( this.stats.dom );
         
         this.initScene();
         this.setupVR();
@@ -76,7 +77,6 @@ class App{
     
     setupVR(){
         this.renderer.xr.enabled = true;
-        
         document.body.appendChild( VRButton.createButton( this.renderer ) );
     }
     

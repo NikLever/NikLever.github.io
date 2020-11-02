@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	body{
+		margin: 0;
+	}
+</style>
+<meta charset="UTF-8">
+	<title>HTML5 Games - Beginner to Pro - Section 11 - Video 5</title>
+	<script src="game.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event){
+			const game = new Game();
+			window.game = game;
+			window.addEventListener('resize', function(){ game.resize(); });
+		});
+	</script>
+</head>
+
+<body>
+	<canvas id="game" style="border:1px solid #000000; background:#000;"></canvas>
+</body>
+</html>

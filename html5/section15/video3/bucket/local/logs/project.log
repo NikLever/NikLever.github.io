@@ -1,0 +1,108 @@
+2018-04-11T14:07:41.894Z - normal: Load ~/.CocosCreator/settings.json
+2018-04-11T14:07:41.905Z - normal: checking language setting...
+2018-04-11T14:07:41.906Z - normal: Language: en
+2018-04-11T14:07:42.897Z - success: protocol editor-framework registered
+2018-04-11T14:07:42.897Z - success: protocol app registered
+2018-04-11T14:07:42.897Z - success: protocol theme registered
+2018-04-11T14:07:42.897Z - success: protocol packages registered
+2018-04-11T14:07:42.898Z - success: protocol unpack registerred
+2018-04-11T14:07:42.898Z - success: protocol disable-commonjs registerred
+2018-04-11T14:07:44.389Z - normal: connected!
+2018-04-11T14:07:44.391Z - normal: Check project /Users/nik/Documents/cocos/bucket
+2018-04-11T14:07:44.394Z - normal: Initializing Cocos2d
+2018-04-11T14:07:44.658Z - normal: Initializing Asset Database
+2018-04-11T14:07:44.703Z - success: protocol uuid registerred
+2018-04-11T14:07:44.703Z - success: protocol db registerred
+2018-04-11T14:07:44.703Z - success: protocol thumbnail registerred
+2018-04-11T14:07:44.704Z - normal: Loading editor/builtin packages
+2018-04-11T14:07:44.730Z - success: anysdk loaded
+2018-04-11T14:07:44.910Z - success: assets loaded
+2018-04-11T14:07:44.916Z - success: builder loaded
+2018-04-11T14:07:44.927Z - success: cocos-analytics loaded
+2018-04-11T14:07:44.932Z - success: console loaded
+2018-04-11T14:07:44.978Z - success: fb-instant-games loaded
+2018-04-11T14:07:44.983Z - success: hierarchy loaded
+2018-04-11T14:07:44.989Z - success: inspector loaded
+2018-04-11T14:07:44.991Z - success: keystore loaded
+2018-04-11T14:07:45.001Z - success: node-library loaded
+2018-04-11T14:07:45.003Z - success: package-asset loaded
+2018-04-11T14:07:45.005Z - success: preferences loaded
+2018-04-11T14:07:45.010Z - success: project-exporter loaded
+2018-04-11T14:07:45.039Z - success: project-importer loaded
+2018-04-11T14:07:45.045Z - success: project-settings loaded
+2018-04-11T14:07:45.051Z - success: ui-kit loaded
+2018-04-11T14:07:45.058Z - success: ui-grid loaded
+2018-04-11T14:07:45.065Z - success: scene loaded
+2018-04-11T14:07:45.067Z - success: sprite-editor loaded
+2018-04-11T14:07:45.075Z - success: store loaded
+2018-04-11T14:07:45.086Z - success: timeline loaded
+2018-04-11T14:07:45.086Z - normal: Loading builtin packages
+2018-04-11T14:07:45.093Z - success: asset-db-debugger loaded
+2018-04-11T14:07:45.094Z - success: color-picker loaded
+2018-04-11T14:07:45.100Z - success: package-manager loaded
+2018-04-11T14:07:45.108Z - success: sdkbox loaded
+2018-04-11T14:07:45.116Z - success: tester loaded
+2018-04-11T14:07:45.121Z - success: ui-kit-preview-extra loaded
+2018-04-11T14:07:45.126Z - success: ui-kit-preview loaded
+2018-04-11T14:07:45.130Z - success: ui-tree loaded
+2018-04-11T14:07:46.598Z - normal: Initializing project /Users/nik/Documents/cocos/bucket
+2018-04-11T14:07:46.602Z - normal: Loading packages
+2018-04-11T14:07:46.607Z - normal: Watching packages
+2018-04-11T14:07:46.620Z - normal: Run Application
+2018-04-11T14:07:47.796Z - success: preview server running at http://localhost:7457
+2018-04-11T14:07:56.798Z - normal: 1.9.0
+2018-04-11T14:14:28.017Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:7706
+2018-04-11T14:16:27.118Z - failed: [db-task][sync-changes] Failed to import asset /Users/nik/Documents/cocos/bucket/assets/Scripts/Game.js, message: Compile error: SyntaxError: /Users/nik/Documents/cocos/bucket/assets/Scripts/Game.js: Unexpected token, expected , (15:14)
+  13 | 
+  14 |     properties: {
+> 15 |         bucket{
+     |               ^
+  16 |         	default: null,
+  17 |             type: cc.Node
+  18 |         }
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
+    at Parser.pp.expect (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1749:33)
+    at Parser.pp$3.parseObj (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3978:12)
+    at Parser.pp$3.parseExprAtom (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3719:19)
+    at Parser.pp$3.parseExprSubscripts (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3494:19)
+    at Parser.pp$3.parseMaybeUnary (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3474:19)
+    at Parser.pp$3.parseExprOps (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3404:19)
+    at Parser.pp$3.parseMaybeConditional (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3381:19)
+    at Parser.pp$3.parseMaybeAssign (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3344:19)
+2018-04-11T15:00:23.882Z - error: TypeError: Cannot read property 'parent' of null
+    at Object.recordCreateNode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/scene-undo.js:1:7902)
+    at Async.waterfall (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/index.js:1:7831)
+    at fn (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:746:34)
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:1213:16
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:166:37
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:706:43
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:167:37
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:1209:30
+    at cc_AnimationClip.createNode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/engine-extends/asset-extends/animation-clip.js:1:1178)
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/utils.js:1:1121
+2018-04-11T15:00:30.916Z - error: TypeError: Cannot read property 'parent' of null
+    at Object.recordCreateNode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/scene-undo.js:1:7902)
+    at Async.waterfall (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/index.js:1:7831)
+    at fn (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:746:34)
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:1213:16
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:166:37
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:706:43
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:167:37
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/async/lib/async.js:1209:30
+    at cc_AnimationClip.createNode (/Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/engine-extends/asset-extends/animation-clip.js:1:1178)
+    at /Applications/CocosCreator.app/Contents/Resources/app.asar/editor/page/scene-utils/utils.js:1:1121
+2018-04-11T15:12:01.291Z - normal: Introduced global variable while editing: i
+2018-04-11T15:12:01.297Z - normal: Introduced global variable while editing: l
+2018-04-11T15:25:19.073Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:89235
+2018-04-11T15:25:19.078Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:89239
+2018-04-11T15:25:19.079Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:89241
+2018-04-11T15:35:57.896Z - normal: Introduced global variable while editing: i
+2018-04-11T15:35:57.898Z - normal: Introduced global variable while editing: l
+2018-04-11T15:44:19.674Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:114161
+2018-04-11T15:44:19.679Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:114164
+2018-04-11T15:45:00.768Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:114982
+2018-04-11T15:46:41.299Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:117692
+2018-04-11T15:48:49.867Z - warn: Key frame already exists
+2018-04-11T16:10:46.702Z - warn: Error: [AssetLibrary] loading JSON or dependencies failed: Can not get asset url by uuid "7fe7ab19-df2e-4de9-8869-c6a0d2046e6a", the asset may be deleted.
+2018-04-11T16:11:50.383Z - warn: Error: [AssetLibrary] loading JSON or dependencies failed: Can not get asset url by uuid "7fe7ab19-df2e-4de9-8869-c6a0d2046e6a", the asset may be deleted.

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>HTML5 Games - Beginner to Pro - Section 6 - Video 1</title>
+	<script src="game.js"></script>
+	<script src="spritoon.js"></script>
+	<script>
+	document.addEventListener("DOMContentLoaded", function(event){
+		const game = new Game();
+		window.game = game;
+	});
+	</script>
+	<style>
+		html, body{
+			font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+			font-size: 12px;
+		}
+		button{
+			background:aquamarine;
+			color: #fff;
+			padding: 10px 10px;
+			border: none;
+			border-radius: 5px;
+		}
+		#controls{
+			position:absolute;
+			width:300px;
+			left: 250px;
+			top: 300px;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="game" width="800" height="600" style="border:1px solid #000000;"></canvas>
+	<div id="controls">
+		<button id="playSndBtn">Play Sound</button>
+		<input id="loopChk" type="checkbox" id="loop"><label for="loopChk">loop</label>
+		<button id="stopSndBtn">Stop Sound</button>
+		<input id="volumeRng" type="range" min="0" max="1.0" value="0.5" step="0.01"><label for="volumeRng">volume</label>
+		<button id="stopMusicBtn">Stop Music</button>
+	</div>
+</body>
+</html>

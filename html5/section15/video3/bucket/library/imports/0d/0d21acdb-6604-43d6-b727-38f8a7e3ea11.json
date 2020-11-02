@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cartoon-2614617_960_720",
+    "texture": "ef299e69-2123-4ff2-a1b5-6cfcef79ae1a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      948,
+      720
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      948,
+      720
+    ]
+  }
+}

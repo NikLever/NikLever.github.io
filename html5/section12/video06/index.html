@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='style.css'>
+	<title>HTML5 Games - Beginner to Pro - Section 4 - Part 3</title>
+	<script src="game.js"></script>
+	<script src="spritoon.js"></script> 
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) { 
+  			let game = new Game();
+			window.game = game;//For debugging
+		});
+	</script>
+</head>
+
+<body>
+	<canvas id="game" width="640" height="480" style="border:1px solid #000000; background:#AF3234"></canvas>
+	<div id="progress">
+		<div class="meter red">
+			<span id="progress-bar" style="width: 0%"></span>
+		</div>
+	</div>
+</body>
+</html>

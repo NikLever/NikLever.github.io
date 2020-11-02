@@ -1,0 +1,19 @@
+{
+  "androidStudio": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "buildPath": "/Library/WebServer/Documents/niklever.com/html5-games-course/section15",
+  "debug": false,
+  "includeEruda": false,
+  "keystoreAlias": "",
+  "keystoreAliasPassword": "",
+  "keystorePassword": "",
+  "keystorePath": "",
+  "platform": "web-mobile",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "sourceMaps": false,
+  "template": "link",
+  "useDebugKeystore": true,
+  "vsVersion": "auto"
+}
