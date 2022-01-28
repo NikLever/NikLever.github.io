@@ -1,6 +1,7 @@
 import * as THREE from '../../libs/three125/three.module.js';
 import { GLTFLoader } from '../../libs/three125/GLTFLoader.js';
 import { RGBELoader } from '../../libs/three125/RGBELoader.js';
+import { OrbitControls } from '../../libs/three125/OrbitControls.js';
 import { LoadingBar } from '../../libs/LoadingBar.js';
 
 class App{
@@ -28,6 +29,8 @@ class App{
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
         this.setEnvironment();
+        
+        const controls = new OrbitControls( this.camera, this.renderer.domElement );
         
         this.load();
 		
