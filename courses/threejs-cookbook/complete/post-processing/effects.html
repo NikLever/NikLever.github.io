@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>The Three.JS Cookbook: Post Processing - Effects</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <style>
+    body{
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "../../libs/three/build/three.module.js",
+    "three/addons/": "../../libs/three/examples/jsm/"
+    }
+  }
+</script>
+<script  type="module"> 
+  import * as THREE from "three"
+  import { OrbitControls } from "three/addons/controls/OrbitControls.js"
+  import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+  import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+  import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+  import { GlitchPass } from 'three/addons/postprocessing/GlitchPass.js';
+  import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+  import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader.js';
+  import { DotScreenShader } from 'three/addons/shaders/DotScreenShader.js';
+  import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
+  import { BokehPass } from 'three/addons/postprocessing/BokehPass.js';
+  import { RenderPixelatedPass } from 'three/addons/postprocessing/RenderPixelatedPass.js';
+  import { LuminosityShader } from 'three/addons/shaders/LuminosityShader.js';
+  import { SobelOperatorShader } from 'three/addons/shaders/SobelOperatorShader.js';
+
+  import { GUI } from "three/addons/libs/lil-gui.module.min.js"
+
+let camera, renderer, composer, object, dot, rgb, glitch, bloom, afterimage, bokeh, pixel,
+    luminosity, sobel;
+
+init();
+animate();
+
+function init() {
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    //
+
+    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+    camera.position.z = 400;
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog( 0x000000, 1, 1000 );
+
+    object = new THREE.Object3D();
+    scene.add( object );
+
+    const geometry = new THREE.SphereGeometry( 1, 4, 4 );
+    
+    for ( let i = 0; i < 100; i ++ ) {
+
+        const material = new THREE.MeshPhongMaterial( { color:Math.random() * 0xffffff, flatShading: true } );
+        const mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5 ).normalize();
+        mesh.position.multiplyScalar( Math.random() * 400 );
+        mesh.rotation.set( Math.random() * 2, Math.random() * 2, Math.random() * 2 );
+        mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 50;
+        object.add( mesh );
+
+    }
+
+    scene.add( new THREE.AmbientLight( 0x222222 ) );
+
+    const light = new THREE.DirectionalLight( 0xffffff, 3 );
+    light.position.set( 1, 1, 1 );
+    scene.add( light );
+
+    // postprocessing
+
+    composer = new EffectComposer( renderer );
+    composer.addPass( new RenderPass( scene, camera ) );
+
+    dot = new ShaderPass( DotScreenShader );
+    dot.uniforms[ 'scale' ].value = 4;
+
+    rgb = new ShaderPass( RGBShiftShader );
+    rgb.uniforms[ 'amount' ].value = 0.0015;
+    
+    glitch = new GlitchPass();
+    bloom = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ) );
+    afterimage = new AfterimagePass();
+    bokeh = new BokehPass(scene, camera, {
+					focus: 320.0,
+					aperture: 3 * 0.00005,
+					maxblur: 0.02
+				});
+    pixel = new RenderPixelatedPass( 10, scene, camera );
+    pixel.normalEdgeStrength = 1.5;
+
+    luminosity = new ShaderPass( LuminosityShader );
+
+    sobel = new ShaderPass( SobelOperatorShader );
+    sobel.uniforms[ 'resolution' ].value.x = window.innerWidth * window.devicePixelRatio;
+    sobel.uniforms[ 'resolution' ].value.y = window.innerHeight * window.devicePixelRatio;
+				
+    const params = {
+        dotPass: false,
+        dotScale: 4,
+        rgbPass: false,
+        rgbAmount: 0.0015,
+        glitchPass: false,
+        glitchWild: false,
+        bloomPass: false,
+        bloomStrength: 0.6,
+		bloomThreshold: 0,
+		bloomRadius: 0,
+        afterImage: false,
+        afterImageDamp: 0.5,
+        bokeh: false,
+        bokehfocus: 320.0,
+		bokehaperture: 3,
+		bokehmaxblur: 0.02,
+        pixel: false,
+        pixelSize: 10, 
+        pixelNormalEdgeStrength: 1.5,
+        luminosity: false,
+        sobel: false
+    }
+
+    bloom.threshold = params.bloomThreshold;
+	bloom.strength = params.bloomStrength;
+	bloom.radius = params.bloomRadius;
+
+    const gui = new GUI();
+
+    const dotui = gui.addFolder('DotPass').close();
+
+    dotui.add(params, 'dotPass').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(dot);
+        }else{
+            composer.removePass(dot);
+        }
+    });
+
+    dotui.add( params, 'dotScale', 1.0, 10.0 ).name('scale').onChange( ( value ) => { dot.uniforms['scale'].value = Number( value ); } );
+    
+    const rgbui = gui.addFolder('RGBPass').close();
+
+    rgbui.add(params, 'rgbPass').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(rgb);
+        }else{
+            composer.removePass(rgb);
+        }
+    });
+
+    rgbui.add( params, 'rgbAmount', 0.0, 0.1 ).name('amount').step(0.001).onChange( ( value ) => { rgb.uniforms['amount'].value = Number( value ); } );
+    
+    const glitchui = gui.addFolder('GlitchPass').close();
+
+    glitchui.add(params, 'glitchPass').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(glitch);
+        }else{
+            composer.removePass(glitch);
+        }
+    });
+
+    glitchui.add( params, 'glitchWild').name('goWild').onChange( ( value ) => { glitch.goWild = value; } );
+    
+    const bloomui = gui.addFolder('BloomPass').close();
+
+    bloomui.add(params, 'bloomPass').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(bloom);
+        }else{
+            composer.removePass(bloom);
+        }
+    });
+
+    bloomui.add( params, 'bloomThreshold', 0.0, 1.0 ).name('threshold').onChange( ( value ) => { bloom.threshold = Number( value ); } );
+    bloomui.add( params, 'bloomStrength', 0.0, 3.0 ).name('strength').onChange( ( value ) => { bloom.strength = Number( value );} );
+    bloomui.add( params, 'bloomRadius', 0.0, 1.0 ).name('radius').step( 0.01 ).onChange( ( value ) => { bloom.radius = Number( value ); } );
+    //
+
+    const aiui = gui.addFolder('AfterImagePass').close();
+
+    aiui.add(params, 'afterImage').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(afterimage);
+        }else{
+            composer.removePass(afterimage);
+        }
+    });
+
+    aiui.add( params, 'afterImageDamp', 0.0, 1.0 ).name('damp').onChange( ( value ) => { afterimage.uniforms['damp'].value = Number( value ); } );
+    
+    const dofui = gui.addFolder('BokehPass').close();
+
+    dofui.add(params, 'bokeh').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(bokeh);
+        }else{
+            composer.removePass(bokeh);
+        }
+    });
+
+    dofui.add( params, 'bokehfocus', 0.0, 800.0, 5 ).name('focus').onChange( ( value ) => { bokeh.uniforms['focus'].value = Number( value ); } );
+    dofui.add( params, 'bokehaperture', 1, 10, 0.1 ).name('aperture').onChange( ( value ) => { bokeh.uniforms['aperture'].value = Number( value )  * 0.00005; } );
+    dofui.add( params, 'bokehmaxblur', 0.0, 0.02, 0.001 ).name('maxblur').onChange( ( value ) => { bokeh.uniforms['maxblur'].value = Number( value ); } );
+
+    const pixui = gui.addFolder('PixelPass').close();
+
+    pixui.add(params, 'pixel').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(pixel);
+        }else{
+            composer.removePass(pixel);
+        }
+    });
+
+    pixui.add( params, 'pixelSize', 1, 16, 1).onChange( (value ) => { pixel.setPixelSize( Number( value ) ); } );
+    pixui.add( params, 'pixelNormalEdgeStrength', 0, 2, 0.05 ).name('NormalEdgeStrength').onChange( (value) => { pixel.normalEdgeStrength = Number( value ); } );
+
+    const lumui = gui.addFolder('GrayScalePass').close();
+
+    lumui.add(params, 'luminosity').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(luminosity);
+        }else{
+            composer.removePass(luminosity);
+        }
+    });
+
+    const sobui = gui.addFolder('SobelPass').close();
+
+    sobui.add(params, 'sobel').name('enable').onChange( value => {
+        if (value){
+            composer.addPass(sobel);
+        }else{
+            composer.removePass(sobel);
+        }
+    });
+
+    window.addEventListener( 'resize', onWindowResize );
+
+}
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    composer.setSize( window.innerWidth, window.innerHeight );
+
+    if (sobel){
+        sobel.uniforms[ 'resolution' ].value.x = window.innerWidth * window.devicePixelRatio;
+        sobel.uniforms[ 'resolution' ].value.y = window.innerHeight * window.devicePixelRatio;
+    }
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
+
+    object.rotation.x += 0.005;
+    object.rotation.y += 0.01;
+
+    composer.render();
+
+}
+  
+</script>
+
+</body>
+</html>
