@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Model-viewer Course</title>
+  <meta name="description" content="Examples from my model-viewer course">
+  <meta name="author" content="Nik Lever">
+
+  <meta property="og:title" content="Model-viewer Course">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niklever.com/courses/model-viewer">
+  <meta property="og:description" content="Examples from my model-viewer course">
+  <meta property="og:image" content="image.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32 " href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <style>
+    model-viewer{
+        width: 400px;
+        height: 600px;
+        margin: 0 auto;
+    }
+
+    @keyframes circle {
+        from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+        to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+    }
+
+    @keyframes elongate {
+        from { transform: translateX(100px); }
+        to   { transform: translateX(-100px); }
+    }
+
+    model-viewer > #ar-prompt {
+        position: absolute;
+        left: 50%;
+        bottom: 175px;
+        animation: elongate 2s infinite ease-in-out alternate;
+        display: none;
+    }
+
+    model-viewer[ar-status="session-started"] > #ar-prompt {
+        display: block;
+    }
+
+    model-viewer > #ar-prompt > img {
+        animation: circle 4s linear infinite;
+    }
+
+    model-viewer > #ar-failure {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 175px;
+        display: none;
+    }
+
+    model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+        display: block;
+    }
+  </style>
+</head>
+
+<body>
+    <!-- Import the component -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Use it like any other HTML element -->
+    <model-viewer   src="../../assets/ar-shop/chair2.glb" 
+                    camera-controls
+                    ar ar-modes="webxr scene-viewer quick-look"
+                    xr-environment
+                    alt="A Chair">
+        <div id="ar-prompt">
+            <img src="../../images/ar-hand.png">
+        </div>
+        <button id="ar-failure">
+            AR is not tracking!
+        </button>         
+    </model-viewer>
+
+</body>
+</html>

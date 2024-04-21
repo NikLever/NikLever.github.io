@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Model-viewer Course</title>
+  <meta name="description" content="Examples from my model-viewer course">
+  <meta name="author" content="Nik Lever">
+
+  <meta property="og:title" content="Model-viewer Course">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niklever.com/courses/model-viewer">
+  <meta property="og:description" content="Examples from my model-viewer course">
+  <meta property="og:image" content="image.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32 " href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <style>
+      model-viewer{
+          width: 500px;
+          height: 700px;
+          margin: 0 auto;
+      }
+  </style>
+</head>
+
+<body>
+  <!-- Import the component -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- Use it like any other HTML element -->
+  <model-viewer id="transform"
+                src="../../assets/canon-at.glb" 
+                camera-controls
+                alt="A camera">
+    <div class="controls">
+      <div>Scale: <input id="scale" type="range" value="1" min="0.5" max="3" step="0.1"></div> 
+      <div>Roll: <input id="roll" type="range" value="0" min="0" max="360"></div>
+      <div id="orbit">Orbit: </div>
+      <button id="frame">Update Framing</button>
+    </div>            
+  </model-viewer>
+  <script>
+    const modelViewer = document.querySelector("model-viewer#transform");
+    const scale = document.querySelector('#scale');
+    const roll = document.querySelector('#roll');
+    const frame = document.querySelector('#frame');
+    const orbit = document.querySelector('#orbit');
+    
+    modelViewer.addEventListener('load', (ev) => {
+      orbit.innerHTML = `Orbit: ${orbitToFixed(3)}`;
+    });
+
+    modelViewer.addEventListener('camera-change', (ev) => {
+      orbit.innerHTML = `Orbit: ${orbitToFixed(3)}`;
+    });
+
+    frame.addEventListener('click', () => {
+      modelViewer.updateFraming();
+    });
+    
+    scale.addEventListener('input', () => {
+      modelViewer.scale = `${scale.value} ${scale.value} ${scale.value}`;
+    });
+
+    roll.addEventListener('input', () => {
+      modelViewer.orientation = `${roll.value}deg 0deg 0deg`;
+    });
+
+    function orbitToFixed( precision ){
+      const cameraOrbit = modelViewer.getCameraOrbit();
+      str = `${cameraOrbit.theta.toFixed(precision)}rad ${cameraOrbit.phi.toFixed(precision)}rad ${cameraOrbit.radius.toFixed(precision)}m`
+      return str;
+    }
+    </script>
+</body>
+</html>

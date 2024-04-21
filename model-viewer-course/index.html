@@ -1,0 +1,174 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Examples from my model-viewer course">
+  <meta name="author" content="Nik Lever">
+
+  <meta property="og:title" content="Model-viewer Course">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niklever.com/mycourses/model-viewer">
+  <meta property="og:description" content="Examples from my model-viewer course">
+  <meta property="og:image" content="image.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32 " href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <title>Model-viewer: AR the easy way</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            padding-top: 3.5rem;
+        }
+
+        .col-md-4 img{
+          width: 100%;
+        }
+
+        .code-along{
+          position: absolute;
+          bottom: 75px;
+        }
+
+        .complete{
+          margin-top: auto;
+        }
+
+        .jumbotron{
+            background: url("images/course-image.png") no-repeat center center #ccc; 
+            -webkit-background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -o-background-size: 100% 100%;
+            background-size: auto 100%;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="https://niklever.com/courses">Nik Lever</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://modelviewer.dev">Model-viewer</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More links</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="api/">API Examples</a>
+              <a class="dropdown-item" href="https://blender.org">Blender</a>
+              <a class="dropdown-item" href="https://threejs.org">ThreeJS</a>
+              <a class="dropdown-item" href="https://github.com/takahirox/glTF-Blender-IO-materials-variants">GLTF variants</a>
+            </div>
+          </li>
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>-->
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Model-viewer: web 3D the easy way</h1>
+          <p>Model-viewer is a Web Component from Google that makes displaying interactive 3D modls on a web page super easy. 
+              The component also includes AR modes that work on suitable Android and iOS devices. On this page you'll find examples
+               from my model-viewer course.</p>
+          <p><a class="btn btn-primary btn-lg" href="https://niklever.com/courses" role="button">Get the course &raquo;</a></p>
+        </div>
+      </div>
+      
+<div class="container">
+  <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/steampunk.png" class="rounded mx-auto d-block" alt="Steampunk Camera" />
+            <h1 class="card-title pricing-card-title">Steampunk Camera</h1>
+            <p>A simple example, illustrating loading and ar modes</p><br>
+            <a href="code-along/camera.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="examples/camera.html">Complete</a>
+          </div>
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/knight.png" class="rounded mx-auto d-block" alt="Knight" />
+            <h1 class="card-title pricing-card-title">Knight</h1>
+            <p>An example showing animation of a character</p><br>
+            <a href="code-along/knight.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="examples/knight.html">Complete</a>
+          </div>
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/shop.png" class="rounded mx-auto d-block" alt="Shop" />
+            <h1 class="card-title pricing-card-title">Shop</h1>
+            <p>Using &lt;model-viewer&gt; for an online shop, with AR</p><br>
+            <a href="code-along/shop.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="examples/shop.html">Complete</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/canon.png" class="rounded mx-auto d-block" alt="Canon AT Camera" />
+            <h1 class="card-title pricing-card-title">Canon AT Retro Camera</h1>
+            <p>Using camera orbit to highlight certain features</p><br>
+            <a href="code-along/canon.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="examples/canon.html">Complete</a>
+          </div>
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/bmw.png" class="rounded mx-auto d-block" alt="BMW S1000" />
+            <h1 class="card-title pricing-card-title">BMW S-1000</h1>
+            <p>A high-performance motorcycle</p><br>
+            <a href="code-along/motorcycle/index.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="examples/motorcycle/index.html">Complete</a>
+          </div>
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/workshop.png" class="rounded mx-auto d-block" alt="An alchemists workshop" />
+            <h1 class="card-title pricing-card-title">Twitter</h1>
+            <p>A Twitter card</p><br>
+            <a href="code-along/tw-workshop.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="https://cards-dev.twitter.com/validator">Complete</a>
+          </div>
+          <div class="col-md-4 card-body d-flex flex-column">
+            <img src="images/pp.png" class="rounded mx-auto d-block" alt="A post processing example" />
+            <h1 class="card-title pricing-card-title">Post Processing</h1>
+            <p>See how easy it is to add post-processing filters</p><br>
+            <a href="code-along/post-processing.html" class="code-along"><strong>Code-along</strong></a>
+            <a type="button" class="align-self-end btn btn-lg btn-block btn-primary complete" href="examples/post-processing.html">Complete</a>
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Nik Lever 2023</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

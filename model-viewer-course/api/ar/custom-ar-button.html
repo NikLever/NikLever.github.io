@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Model-viewer Course</title>
+  <meta name="description" content="Examples from my model-viewer course">
+  <meta name="author" content="Nik Lever">
+
+  <meta property="og:title" content="Model-viewer Course">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://niklever.com/courses/model-viewer">
+  <meta property="og:description" content="Examples from my model-viewer course">
+  <meta property="og:image" content="image.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32 " href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <style>
+    body{
+        background-color: blueviolet;
+    }
+
+    model-viewer{
+        width: 400px;
+        height: 600px;
+        margin: 0 auto;
+        --poster-color: transparent;
+    }
+
+    #ar-button {
+        background-image: url(../../images/ar-icon.png);
+        background-repeat: no-repeat;
+        background-size: 50px 50px;
+        background-position: 8px 50%;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        bottom: 20px;
+        color:#4285f4;
+        height: 70px;
+        width: 70px;
+        border-radius: 35px;
+        border: 1px solid #2c3342;
+        cursor: pointer;
+    }
+
+    #ar-button:hover {
+        background-color: #ebd615;
+    }
+
+    #ar-button:active {
+        background-color: #E8EAED;
+    }
+
+    #ar-button:focus {
+        outline: none;
+    }
+
+    #ar-button:focus-visible {
+        outline: 1px solid #4285f4;
+    }
+  </style>
+</head>
+
+<body>
+    <!-- Import the component -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Use it like any other HTML element -->
+    <model-viewer id="seamless" 
+                src="../../assets/canon-at.glb" 
+                poster="../loading/camera.webp"
+                seamless-poster
+                loading="eager"
+                reveal="interaction"
+                camera-controls
+                ar ar-modes="webxr scene-viewer quick-look"
+                alt="A Canon AT Camera">
+        <button slot="ar-button" id="ar-button">
+        </button>
+    </model-viewer>
+
+</body>
+</html>
